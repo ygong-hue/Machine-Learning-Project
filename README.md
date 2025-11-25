@@ -1,14 +1,17 @@
+
 # 📊 Predicting Corporate Profitability Using ESG & Financial Indicators
 
 ## 👥 Contributors
-- **Wei-Ling HUANG**  
+- **Wei-Ling HUNG**  
 - **Yushu GONG**
 
 ---
 
 ## 1. Project Overview
 
-In recent years, Environmental, Social, and Governance (ESG) performance has become a critical factor in corporate strategy. Organizations and investors want to understand not only how ESG impacts sustainability outcomes, but also whether it influences **financial performance**.
+In recent years, Environmental, Social, and Governance (ESG) performance has become a critical factor in corporate strategy. Organizations and investors want to understand not only how ESG impacts sustainability outcomes, but also whether it influences **financial performance**. Investors and companies want to understand:
+
+> **Can ESG performance meaningfully predict a company’s financial profitability?**
 
 This project analyzes the relationship between **financial metrics, ESG indicators, and corporate profitability**, and builds machine learning models to predict a company’s **Profit Margin**.
 
@@ -97,10 +100,14 @@ Several regression models were built and evaluated, including:
 - XGBoost  
 - CatBoost  
 
+Model baseline set up as below:
+- Baseline 
+- Baseline + Scaling + One Hot Encoding
+- Baseline + Scaling + One Hot Encoding + Hyper Parameter Tuning
+
 Model performance was evaluated using the following metrics:
 
 - **R² score**  
-- **Mean Absolute Error (MAE)**  
 - **Root Mean Squared Error (RMSE)**  
 
 📓 **Notebook used:**  
