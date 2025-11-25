@@ -1,95 +1,119 @@
-# 📊 Predicting Corporate Profitability: The Impact of ESG and Financial Metrics
+# 📊 Predicting Corporate Profitability Using ESG & Financial Indicators
 
-## 🎯 Aim of the Project
+## 1. Project Overview
 
-### Context
+In recent years, Environmental, Social, and Governance (ESG) performance has become a critical factor in corporate strategy. Organizations and investors want to understand not only how ESG impacts sustainability outcomes, but also whether it influences **financial performance**.
 
-Companies today face increasing pressure to balance financial performance with sustainability goals. Business leaders want to understand how operational metrics (e.g., revenue, market position, growth) and sustainability metrics (e.g., ESG scores, carbon emissions, resource usage) influence a company’s overall profitability.
+This project analyzes the relationship between **financial metrics, ESG indicators, and corporate profitability**, and builds machine learning models to predict a company’s **Profit Margin**.
 
-To support data-driven strategic decisions, this analysis uses a multi-industry dataset containing financial, ESG, and environmental indicators for each company.
+The project combines:
+- Financial performance data  
+- ESG scoring data  
+- Environmental performance metrics  
+- Machine learning modeling  
 
-### Objective
-
-The goal of this project is to build a predictive model that estimates a company’s **Profit Margin** using its financial, ESG, and environmental attributes. Specifically, the model aims to:
-
-- Identify key drivers that influence profitability.  
-- Quantify the relationship between ESG performance and profit margin.  
-- Compare profitability patterns across different industries and regions.  
-- Support strategic recommendations by highlighting improvement opportunities.  
-
-The final model provides organizations with actionable insights to optimize performance while strengthening sustainability positioning.
+to generate both **predictive insights** and **strategic decision support**.
 
 ---
 
-## ⚙️ Project Setup and Execution
+## 2. Aim & Objectives
 
-The core analysis and model building are performed in the following Jupyter Notebooks:
+### 🎯 Main Aim  
+To develop a machine learning model that predicts a company’s **profit margin** based on its financial and ESG performance.
 
-- `data_EDA.ipynb` – Exploratory Data Analysis  
-- `data.ipynb` – Modeling and portfolio recommendation
-
-### Prerequisites
-
-- Python 3.8+
-- Required libraries (imported in the notebooks):
-numpy
-pandas
-seaborn
-matplotlib
-scipy
-scikit-learn
-xgboost
-
-
-## 💾 Dataset Structure
-
-Dataset contains 1,000 companies from 2015–2025.
-
-| Column | Description | Type |
-|--------|------------|------|
-| CompanyID | Company ID | Numeric |
-| CompanyName | Company name | Categorical |
-| Industry | Business sector | Categorical |
-| Region | Location | Categorical |
-| Year | Reporting year | Numeric |
-| Revenue | Revenue (M USD) | Numeric |
-| ProfitMargin | Target variable (%) | Numeric |
-| MarketCap | Market capitalization | Numeric |
-| GrowthRate | Revenue growth (%) | Numeric |
-| ESG_Overall | ESG score | Numeric |
-| ESG_Environmental | Environmental score | Numeric |
-| ESG_Social | Social score | Numeric |
-| ESG_Governance | Governance score | Numeric |
-| CarbonEmissions | CO₂ emissions | Numeric |
-| WaterUsage | Water usage | Numeric |
-| EnergyConsumption | Energy use | Numeric |
+### ✅ Specific Objectives
+- Analyze relationships between ESG metrics and profitability  
+- Identify the strongest drivers of profit margins  
+- Compare performance across industries and regions  
+- Build and evaluate predictive models  
+- Provide insights for ESG-driven investment and strategy decisions  
 
 ---
 
+## 3. Dataset Description
 
-## 📝 Data Cleaning and Feature Engineering
+The dataset contains financial, ESG, and environmental data for **1,000 companies** from **2015 to 2025** across multiple industries and regions.
 
-### Missing Values
-- GrowthRate had NaN values for year 2015.
-- 1,000 rows were removed.
-- Final dataset: 10,000 rows (2016–2025).
+### 📌 Key Features
 
-### Feature Engineering
+| Feature | Description |
+|--------|-------------|
+| CompanyID | Unique company identifier |
+| CompanyName | Company name |
+| Industry | Industry sector |
+| Region | Geographic region |
+| Year | Reporting year |
+| Revenue | Annual revenue (USD) |
+| ProfitMargin | Profit margin (%) → **Target variable** |
+| MarketCap | Market capitalization |
+| GrowthRate | Revenue growth rate (%) |
+| ESG_Overall | Overall ESG score |
+| ESG_Environmental | Environmental score |
+| ESG_Social | Social score |
+| ESG_Governance | Governance score |
+| CarbonEmissions | CO₂ emissions |
+| WaterUsage | Water consumption |
+| EnergyConsumption | Energy usage |
 
-Environmental features were highly correlated. They were replaced by:
+---
+
+## 4. Data Cleaning & Feature Engineering
+
+### 🧹 Data Cleaning
+- The column `GrowthRate` contained missing values for the year **2015**.
+- All rows with missing values were removed.
+- Final dataset contains **10,000 rows** from **2016 to 2025**.
+
+### 🛠 Feature Engineering
+Environmental indicators were highly correlated.  
+They were combined into a new composite index:
 
 Env_Intensity_Index = (CarbonEmissions + WaterUsage + EnergyConsumption) / 3
 
-The original three columns were removed.
+## 5. Methodology
+
+### 5.1 Exploratory Data Analysis (EDA)
+
+The EDA phase includes:
+
+- Distribution analysis of financial and ESG metrics  
+- Industry and regional comparisons  
+- Correlation analysis between ESG scores and profit margins  
 
 ---
 
+### 5.2 Machine Learning Modeling
 
-## ✅ Project Output
+Several regression models were built and evaluated, including:
 
-This project provides:
-- Profit margin prediction  
-- ESG impact analysis  
-- Sustainability-focused portfolio insights  
+- Linear Regression  
+- Random Forest  
+- XGBoost  
+- CatBoost  
 
-It provides decision-makers with actionable insights to improve financial outcomes while strengthening ESG positioning.
+Model performance was evaluated using the following metrics:
+
+- **R² score**  
+- **Mean Absolute Error (MAE)**  
+- **Root Mean Squared Error (RMSE)**  
+
+📓 **Notebook used:**  
+`ESG_notebook.ipynb`
+
+---
+
+## 6. Project Structure
+
+```bash
+📁 Project Root
+├── ESG_notebook.ipynb                
+├── README.md                         
+├── catboost_info/                   
+├── data/                            
+│   └── company_esg_financial_dataset.csv
+├── Notebooks/
+├── └── data_EDA.ipynb
+├── └── data.ipynb        
+├── .DS_Store                        
+├── optuna_history.html              
+└── rf_study.db                       
